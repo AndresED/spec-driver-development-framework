@@ -1,0 +1,63 @@
+name: local-ai-agent-lab
+version: "1.0"
+
+# =====================================================
+# CONTINUE – COGNITIVE BOOTSTRAP CONFIGURATION
+# This file defines:
+# - Which rules govern the assistant
+# - Which local models are available
+# It does NOT define autonomous agents.
+# =====================================================
+
+rules:
+  # 1. Identidad base del asistente
+  - name: agent_base
+    rule: ai-agent-rules/backend/AGENT_BASE.md
+
+  # 2. Idioma (debe cargarse lo antes posible)
+  - name: language_rules
+    rule: ai-agent-rules/backend/LANGUAGE_RULES.md
+
+  # 3. Restricciones globales de respuesta
+  - name: response_constraints
+    rule: ai-agent-rules/backend/RESPONSE_CONSTRAINTS.md
+
+  # 4. Exploración obligatoria antes de actuar
+  - name: exploration_rules
+    rule: ai-agent-rules/backend/EXPLORATION_RULES.md
+
+  # 5. Arquitectura (Clean / Hexagonal / CQRS)
+  - name: arch_rules
+    rule: ai-agent-rules/backend/ARCHITECTURE_RULES.md
+
+  # 6. Testing (100% coverage, reglas duras)
+  - name: testing_rules
+    rule: ai-agent-rules/backend/TESTING_RULES.md
+
+# =====================================================
+# LOCAL MODELS (Ollama)
+# =====================================================
+
+models:
+  # Modelo principal: razonamiento, arquitectura, análisis
+  - name: qwen-architect
+    provider: ollama
+    model: qwen2.5-coder:14b
+    roles:
+      - chat
+      - edit
+      - apply
+
+  # Modelo rápido para autocompletado
+  - name: qwen-autocomplete
+    provider: ollama
+    model: qwen2.5-coder:7b
+    roles:
+      - autocomplete
+
+  # Embeddings locales (futuro RAG)
+  - name: local-embeddings
+    provider: ollama
+    model: nomic-embed-text:latest
+    roles:
+      - embed
