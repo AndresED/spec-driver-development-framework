@@ -38,15 +38,15 @@ Ejecutan decisiones ya tomadas.**
 
 Si algo requiere decidir, **no pertenece a una sesión**.
 
----
-
+--- 
+```
 ├── README.md
 ├── _templates/
-│ ├── session_state.template.md
-│ ├── spec_ref.template.md
-│ ├── instruction-pack.template.md
-│ ├── notes.template.md
-│ └── status.template.md
+│├── session_state.template.md
+│├── spec_ref.template.md
+│├── instruction-pack.template.md
+│├── notes.template.md
+│ ── status.template.md
 └── <module>/
 └── <feature>/
 ├── session_state.md
@@ -54,7 +54,7 @@ Si algo requiere decidir, **no pertenece a una sesión**.
 ├── instruction-pack.md
 ├── notes.md
 └── status.md
-
+```
 
 ---
 
